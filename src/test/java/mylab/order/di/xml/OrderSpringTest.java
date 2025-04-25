@@ -24,7 +24,7 @@ public class OrderSpringTest {
 		assertNotNull(cart);
 		assertEquals(2, cart.getProducts().size());
 		
-		assertEquals(30000, cart.getTotalPrice());
+		assertEquals(40000, cart.getTotalPrice());
 		
 		for(Product product : cart.getProducts()) {
 			System.out.println(product);
@@ -34,7 +34,7 @@ public class OrderSpringTest {
 	@Test
 	void testOrderService() {
 		assertNotNull(service);
-		assertEquals(30000, service.calculateOrderTotal());
+		assertEquals(40000, service.calculateOrderTotal());
 		
 		
 		for(Product product : service.getShoppingCart().getProducts()) {
