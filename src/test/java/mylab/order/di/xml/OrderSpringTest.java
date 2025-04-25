@@ -23,12 +23,15 @@ public class OrderSpringTest {
 	void testShoppingCart() {
 		assertNotNull(cart);
 		assertEquals(2, cart.getProducts().size());
+		System.out.println("상품 개수: " + cart.getProducts().size());
 		
 		assertEquals(40000, cart.getTotalPrice());
 		
 		for(Product product : cart.getProducts()) {
 			System.out.println(product);
 		}
+		System.out.println("전체 상품 가격(testShoppingCart): " + cart.getTotalPrice());
+		System.out.println("");
 	}
 	
 	@Test
@@ -36,9 +39,9 @@ public class OrderSpringTest {
 		assertNotNull(service);
 		assertEquals(40000, service.calculateOrderTotal());
 		
-		
 		for(Product product : service.getShoppingCart().getProducts()) {
 			System.out.println(product);
 		}
+		System.out.println("전체 상품 가격(testOrderService): " + service.calculateOrderTotal());
 	}
 }
