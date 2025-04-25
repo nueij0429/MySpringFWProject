@@ -7,5 +7,7 @@
 
 	<!-- Auto Component Scanning 설정 -->
 	<context:component-scan base-package="mylab.user.di.annot" />
-    
+	
+    <!-- user.properties 파일의 정보 설정 -->
+    <context:property-placeholder location="classpath:user.properties"/>
 </beans>
