@@ -27,5 +27,9 @@
     </property>
 	</bean>
 	
-	
+	<!-- OrderService 클래스를 Spring Bean으로 설정-->
+	<bean id="orderService" class="mylab.order.di.xml.OrderService">
+    	<property name="shoppingCart" ref="shoppingCart" />
+	</bean>
+
 </beans>
