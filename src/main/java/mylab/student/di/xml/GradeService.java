@@ -8,7 +8,6 @@ public class GradeService {
     
     public GradeService() {}
     
-    // Getters and Setters
     public Course getCourse() { return course; }
     public void setCourse(Course course) { this.course = course; }
     

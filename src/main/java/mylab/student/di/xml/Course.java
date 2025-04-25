@@ -9,7 +9,6 @@ public class Course {
     
     public Course() {}
     
-    // Getters and Setters
     public String getCourseId() { return courseId; }
     public void setCourseId(String courseId) { this.courseId = courseId; }
     

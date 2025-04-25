@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Student 클래스를 Spring Bean으로 설정 -->
+	<bean id="emma" class="mylab.student.di.xml.Student">
+		<property name="id" value="S001" />
+		<property name="name" value="엠마" />
+		<property name="score" value="90" />
+	</bean>
+	
+	<bean id="john" class="mylab.student.di.xml.Student">
+		<constructor-arg name="id" value="S002" />
+		<constructor-arg name="name" value="존" />
+		<constructor-arg name="score" value="75" />
+	</bean>
+	
+	<bean id="jini" class="mylab.student.di.xml.Student">
+		<property name="id" value="S003" />
+		<property name="name" value="지니" />
+		<property name="score" value="85" />
+	</bean>
+</beans>
