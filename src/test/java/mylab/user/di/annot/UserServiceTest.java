@@ -30,12 +30,14 @@ public class UserServiceTest {
 	void testUserService() {
 		assertNotNull(userService);
 		assertNotNull(userService.getUserRepository());
-		
+		//userService.getUserRepository().getDbtype() => String 타입 값은 MySQL
 		assertEquals("MySQL", userService.getUserRepository().getDbType());
 		
+		//SecurityService(어노테이션으로 주입) 확인
 		assertNotNull(userService.getSecurityService());
 		
 		assertTrue(userService.registerUser("123", "홍길동", "12345"));
+		assertFalse(userService.registerUser("456", "김철수", ""));
 	}
 
 }

@@ -19,6 +19,7 @@ public class UserService {
         if (securityService.authenticate(userId, password)) {
             return userRepository.saveUser(userId, name);
         }
+        System.out.println("등록 실패: 비밀번호가 유효하지 않음 " + "ID: " + userId + " 이름: " +name);
         return false;
     }
 }
