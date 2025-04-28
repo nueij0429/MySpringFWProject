@@ -11,10 +11,6 @@
     
 	<typeAliases>
 		<typeAlias alias="User" type="myspring.user.vo.UserVO" />
-		<typeAlias alias="Student" type="myspring.student.vo.StudentVO" />
-		<typeAlias alias="Dept" type="myspring.student.vo.DeptVO" />
-		<typeAlias alias="Course" type="myspring.student.vo.CourseVO" />
-		<typeAlias alias="CourseStatus" type="myspring.student.vo.CourseStatusVO" />
 	</typeAliases>
 
 </configuration>
