@@ -3,9 +3,12 @@ package myspring.user;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.function.Consumer;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +17,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import myspring.user.vo.UserVO;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = "classpath:spring-beans-mybatis.xml")
@@ -26,9 +31,30 @@ public class UserMyBatisTest {
 	@Autowired
 	SqlSessionFactory sessionFactory;
 	
+	@Autowired
+	SqlSession sqlSession;
+	
 	@Test
 	void sqlSession() {
 		System.out.println(sessionFactory.getClass().getName());
+		UserVO user = sqlSession.selectOne("userNS.selectUserById", "dooly");
+		logger.debug(user);
+		
+		//Anonymous Inner Class(익명 내부 클래스)
+		List<UserVO> userList = sqlSession.selectList("userNS.selectUserList"); //List<UserVO>를 호출.
+		//기존의 for Loop
+		for (UserVO userVO : userList) {
+			logger.debug(userVO);
+		}
+		//.forEach(Consumer)에서 Consumer를 Anonymous Inner Class 형태로 생성하는 방식.
+		userList.forEach(new Consumer<UserVO>() {
+			@Override
+			public void accept(UserVO user) {
+				logger.debug(user);
+			}
+		});
+		//.forEach(Consumer)에서 Consumer를 Lambda Expression(람다식)으로 생성하는 방식.
+		userList.forEach(user1 -> logger.debug(user1));
 	}
 	
 	@Test
