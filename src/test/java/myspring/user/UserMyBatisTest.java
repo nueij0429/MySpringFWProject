@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class UserMyBatisTest {
 	SqlSession sqlSession;
 	
 	@Test
+	void userMapper() {
+		UserVO user = sqlSession.selectOne("userNS.selectUserById", "dooly");
+		logger.debug(user);
+	}
+	
+	@Test @Disabled
 	void sqlSession() {
 		System.out.println(sessionFactory.getClass().getName());
 		UserVO user = sqlSession.selectOne("userNS.selectUserById", "dooly");
@@ -53,8 +60,12 @@ public class UserMyBatisTest {
 				logger.debug(user);
 			}
 		});
+		//Consumer 추상메서드 void accept(T t)
 		//.forEach(Consumer)에서 Consumer를 Lambda Expression(람다식)으로 생성하는 방식.
-		userList.forEach(user1 -> logger.debug(user1));
+		userList.forEach(user1 -> System.out.println(user1));
+		
+		//.forEach(Consumer)에서 Consumer를 Method Reference으로 생성하는 방식.
+		userList.forEach(System.out::println);
 	}
 	
 	@Test
