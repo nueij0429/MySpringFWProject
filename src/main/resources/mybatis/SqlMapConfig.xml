@@ -10,9 +10,9 @@
     </settings>
     
 	<typeAliases>
-		<typeAlias alias="User" type="myspring.user.vo.UserVO" />
-	</typeAliases>
-
+        <typeAlias alias="CustomerVO" type="mylab.customer.vo.CustomerVO"/>
+        <typeAlias alias="User" type="myspring.user.vo.UserVO"/>
+    </typeAliases>
 </configuration>
 
 
