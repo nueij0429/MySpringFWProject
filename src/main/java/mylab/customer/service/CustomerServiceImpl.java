@@ -24,8 +24,4 @@ public class CustomerServiceImpl implements CustomerService {
         return customerDAO.selectAllCustomer();
     }
 
-    @Override
-    public void insertCustomer(CustomerVO customer) {
-        customerDAO.insertCustomer(customer);
-    }
 }

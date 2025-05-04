@@ -23,9 +23,4 @@ public class CustomerDAOImpl implements CustomerDAO {
     public List<CustomerVO> selectAllCustomer() {
         return customerMapper.selectAllCustomer();
     }
-
-    @Override
-    public void insertCustomer(CustomerVO customer) {
-        customerMapper.insertCustomer(customer);
-    }
 }
