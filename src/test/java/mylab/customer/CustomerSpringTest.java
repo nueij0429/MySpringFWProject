@@ -24,7 +24,7 @@ public class CustomerSpringTest {
     public void testGetCustomerInfo() {
         CustomerVO customer = customerService.getCustomerInfo(1);
         assertNotNull(customer);
-        System.out.println("[고객 정보] 이름: " + customer.getName() + ", 이메일: " + customer.getEmail());
+        System.out.println("[고객 정보] 이름: " + customer.getName() + ", 이메일: " + customer.getEmail() + ", 나이: " + customer.getAge());
     }
 
     @Test
@@ -33,7 +33,9 @@ public class CustomerSpringTest {
         assertNotNull(list);
         assertFalse(list.isEmpty());
         System.out.println("[전체 고객 수] " + list.size());
-        list.forEach(c -> System.out.println(c.getId() + ": " + c.getName()));
-    }
-    
+        list.forEach(c -> {
+            System.out.println(c.getId() + ": " + c.getName());
+            System.out.println("   " + c.getName() + " 고객님의 정보: 이메일: " + c.getEmail() + ", 나이: " + c.getAge());
+        });
+    }   
 }
